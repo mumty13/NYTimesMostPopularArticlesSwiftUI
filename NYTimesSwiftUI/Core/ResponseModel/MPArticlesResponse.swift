@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - MPArticlesResponse
-struct MPArticlesResponse: Codable {
+struct MPArticlesResponse: Codable, Hashable {
     let status, copyright: String?
     let numResults: Int?
     let results: [Article]?
@@ -14,7 +14,7 @@ struct MPArticlesResponse: Codable {
 }
 
 // MARK: - Result
-struct Article: Codable {
+struct Article: Codable, Hashable {
     let uri: String?
     let url: String?
     let id, assetID: Int?
@@ -47,7 +47,7 @@ struct Article: Codable {
 }
 
 // MARK: - Media
-struct Media: Codable {
+struct Media: Codable, Hashable {
     let type: MediaType?
     let subtype: Subtype?
     let caption, copyright: String?
@@ -62,32 +62,32 @@ struct Media: Codable {
 }
 
 // MARK: - MediaMetadatum
-struct MediaMetadatum: Codable {
+struct MediaMetadatum: Codable, Hashable {
     let url: String?
     let format: Format?
     let height, width: Int?
 }
 
-enum Format: String, Codable {
+enum Format: String, Codable, Hashable {
     case mediumThreeByTwo210 = "mediumThreeByTwo210"
     case mediumThreeByTwo440 = "mediumThreeByTwo440"
     case standardThumbnail = "Standard Thumbnail"
 }
 
-enum Subtype: String, Codable {
+enum Subtype: String, Codable, Hashable {
     case empty = ""
     case photo = "photo"
 }
 
-enum MediaType: String, Codable {
+enum MediaType: String, Codable, Hashable {
     case image = "image"
 }
 
-enum Source: String, Codable {
+enum Source: String, Codable, Hashable {
     case newYorkTimes = "New York Times"
 }
 
-enum ResultType: String, Codable {
+enum ResultType: String, Codable, Hashable {
     case article = "Article"
     case interactive = "Interactive"
 }

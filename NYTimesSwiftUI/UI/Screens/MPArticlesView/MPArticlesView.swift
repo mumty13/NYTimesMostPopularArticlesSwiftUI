@@ -9,6 +9,7 @@ import SwiftUI
 import WebKit
 
 struct MPArticlesView: View {
+    @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = ViewModel()
     @State private var isSearching = false
     
@@ -22,8 +23,14 @@ struct MPArticlesView: View {
                     ProgressView(StringConstants.loadingProgressText).background(.white)
                 } else {
                     List(viewModel.articles, id: \.id) { article in
-                        NavigationLink(destination: MPArticleDetailView(article: article)) {
-                            MPArticleCellView(imageURL: article.media?.first?.mediaMetadata?.first?.url ?? "", title: article.title ?? "", byLine: article.byline ?? "", date: article.publishedDate ?? "")
+                        MPArticleCellView(
+                            imageURL: article.media?.first?.mediaMetadata?.first?.url ?? "",
+                            title: article.title ?? "",
+                            byLine: article.byline ?? "",
+                            date: article.publishedDate ?? ""
+                        )
+                        .onTapGesture {
+                            coordinator.push(page: .articleDetail(article: article))
                         }
                     }
                     .frame(maxWidth: .infinity,

@@ -11,6 +11,8 @@
 		E05C1F952BE4DFD300C71D63 /* MPArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1F942BE4DFD300C71D63 /* MPArticlesViewModel.swift */; };
 		E05C1F982BE4FC3D00C71D63 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1F972BE4FC3D00C71D63 /* CustomColors.swift */; };
 		E05C1F9A2BE4FCA400C71D63 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1F992BE4FCA400C71D63 /* StringConstants.swift */; };
+		E05C1FA52BE51B5C00C71D63 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1FA42BE51B5C00C71D63 /* Coordinator.swift */; };
+		E05C1FA72BE51CF100C71D63 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1FA62BE51CF100C71D63 /* CoordinatorView.swift */; };
 		E08FA9482BE4B69F006C5066 /* MPArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA9472BE4B69F006C5066 /* MPArticlesRepository.swift */; };
 		E08FA94A2BE4B6E3006C5066 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA9492BE4B6E3006C5066 /* APIConstants.swift */; };
 		E08FA94C2BE4B70A006C5066 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA94B2BE4B70A006C5066 /* APIError.swift */; };
@@ -57,6 +59,8 @@
 		E05C1F942BE4DFD300C71D63 /* MPArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesViewModel.swift; sourceTree = "<group>"; };
 		E05C1F972BE4FC3D00C71D63 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		E05C1F992BE4FCA400C71D63 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		E05C1FA42BE51B5C00C71D63 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E05C1FA62BE51CF100C71D63 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		E08FA9472BE4B69F006C5066 /* MPArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesRepository.swift; sourceTree = "<group>"; };
 		E08FA9492BE4B6E3006C5066 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		E08FA94B2BE4B70A006C5066 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		E0084F282BE3DB0E00B03857 /* MPArticlesView */ = {
 			isa = PBXGroup;
 			children = (
+				E05C1FA22BE51AAD00C71D63 /* Subviews */,
 				E0084F292BE3DB4500B03857 /* MPArticlesView.swift */,
 				E05C1F942BE4DFD300C71D63 /* MPArticlesViewModel.swift */,
 			);
@@ -125,6 +130,52 @@
 				E05C1F992BE4FCA400C71D63 /* StringConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		E05C1F9E2BE51A3A00C71D63 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E0E3F84C2BE214F50031FA6B /* NetworkService */,
+				E0E3F8532BE34E020031FA6B /* ResponseModel */,
+				E08FA9462BE4B682006C5066 /* Repository */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E05C1F9F2BE51A4000C71D63 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E05C1FA32BE51B3700C71D63 /* Coordinator */,
+				E08FA95E2BE4D606006C5066 /* CommonViews */,
+				E05C1FA12BE51A8E00C71D63 /* Screens */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		E05C1FA12BE51A8E00C71D63 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E08FA9662BE4D6F9006C5066 /* MPArticleDetailView */,
+				E0084F282BE3DB0E00B03857 /* MPArticlesView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		E05C1FA22BE51AAD00C71D63 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				E08FA9612BE4D64F006C5066 /* MPArticleCellView */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		E05C1FA32BE51B3700C71D63 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E05C1FA42BE51B5C00C71D63 /* Coordinator.swift */,
+				E05C1FA62BE51CF100C71D63 /* CoordinatorView.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		E08FA9462BE4B682006C5066 /* Repository */ = {
@@ -193,14 +244,9 @@
 		E0E3F8212BE213C20031FA6B /* NYTimesSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				E05C1F9F2BE51A4000C71D63 /* UI */,
+				E05C1F9E2BE51A3A00C71D63 /* Core */,
 				E05C1F962BE4FC2400C71D63 /* Constants */,
-				E08FA9662BE4D6F9006C5066 /* MPArticleDetailView */,
-				E08FA9612BE4D64F006C5066 /* MPArticleCellView */,
-				E08FA95E2BE4D606006C5066 /* CommonViews */,
-				E08FA9462BE4B682006C5066 /* Repository */,
-				E0084F282BE3DB0E00B03857 /* MPArticlesView */,
-				E0E3F8532BE34E020031FA6B /* ResponseModel */,
-				E0E3F84C2BE214F50031FA6B /* NetworkService */,
 				E0E3F8222BE213C20031FA6B /* NYTimesSwiftUIApp.swift */,
 				E0E3F8262BE213C40031FA6B /* Assets.xcassets */,
 				E0E3F8282BE213C40031FA6B /* Preview Content */,
@@ -387,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E08FA9602BE4D618006C5066 /* SearchBar.swift in Sources */,
+				E05C1FA72BE51CF100C71D63 /* CoordinatorView.swift in Sources */,
 				E05C1F982BE4FC3D00C71D63 /* CustomColors.swift in Sources */,
 				E0084F2A2BE3DB4500B03857 /* MPArticlesView.swift in Sources */,
 				E08FA9482BE4B69F006C5066 /* MPArticlesRepository.swift in Sources */,
@@ -396,6 +443,7 @@
 				E05C1F952BE4DFD300C71D63 /* MPArticlesViewModel.swift in Sources */,
 				E0E3F8572BE3C2380031FA6B /* NetworkManager.swift in Sources */,
 				E0E3F8232BE213C20031FA6B /* NYTimesSwiftUIApp.swift in Sources */,
+				E05C1FA52BE51B5C00C71D63 /* Coordinator.swift in Sources */,
 				E08FA9632BE4D660006C5066 /* MPArticleCellView.swift in Sources */,
 				E08FA96A2BE4D76B006C5066 /* AsyncImageView.swift in Sources */,
 				E08FA94E2BE4B78E006C5066 /* DefaultResponseMapper.swift in Sources */,
