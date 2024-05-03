@@ -28,7 +28,7 @@ struct MPArticleCellView: View {
                     .lineLimit(2)
                 HStack(spacing: 5) {
                     Spacer()
-                    Image(systemName: "calendar")
+                    Image(systemName: ImageConstants.calendar)
                         .foregroundColor(.gray)
                     Text(date)
                         .font(.footnote)

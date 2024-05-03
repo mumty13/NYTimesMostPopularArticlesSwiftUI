@@ -13,6 +13,7 @@ extension MPArticlesView {
         @Published var searchText: String = ""
         @Published var isLoading: Bool = true
         @Published var error: Error?
+        @Published var errorShow: Bool = false
         
         private let articlesRepository: MPArticlesRepository
         private var allArticles: [Article] = []
@@ -29,9 +30,11 @@ extension MPArticlesView {
                     self.allArticles = articlesResponse.results ?? []
                     self.articles = self.allArticles
                     self.isLoading = false
+                    self.errorShow = false
                 } catch {
                     self.error = error
                     self.isLoading = false
+                    self.errorShow = true
                 }
             }
         }
@@ -44,6 +47,12 @@ extension MPArticlesView {
                     article.title?.localizedCaseInsensitiveContains(searchText) ?? false
                 }
             }
+        }
+        
+        func resetStates() {
+            errorShow = false
+            searchText = ""
+            error = nil
         }
     }
 }

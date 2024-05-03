@@ -19,7 +19,7 @@ struct MPArticlesView: View {
                     SearchBar(searchText: $viewModel.searchText)
                 }
                 if viewModel.isLoading {
-                    ProgressView("Loading…").background(.white)
+                    ProgressView(StringConstants.loadingProgressText).background(.white)
                 } else {
                     List(viewModel.articles, id: \.id) { article in
                         NavigationLink(destination: MPArticleDetailView(article: article)) {
@@ -33,25 +33,37 @@ struct MPArticlesView: View {
                 }
             }
             .toolbar(.visible, for: .automatic)
-            .toolbarBackground(Color(red: 121/255, green: 225/255, blue: 195/255))
+            .toolbarBackground(CustomColors.nyTimesGreen)
             .scrollContentBackground(.hidden)
-            .background(Color(red: 121/255, green: 225/255, blue: 195/255))
-            .navigationTitle("NY Times Most Popular")
+            .background(CustomColors.nyTimesGreen)
+            .navigationTitle(StringConstants.navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
                 trailing:
                     Button(action: {
                         isSearching.toggle()
                     }) {
-                        Image(systemName: "magnifyingglass")
+                        Image(systemName: ImageConstants.magnifyingglass)
                             .foregroundColor(.black)
                     }
             )
             .onAppear {
+                if viewModel.articles.isEmpty {
+                    viewModel.fetchMostPopularArticles()
+                }
+            }
+            .refreshable {
+                isSearching = false
+                viewModel.resetStates()
                 viewModel.fetchMostPopularArticles()
             }
             .onChange(of: viewModel.searchText) { _ in
                 viewModel.filterArticles()
+            }
+            .alert(StringConstants.errorMessage, isPresented: $viewModel.errorShow) {
+                Button(StringConstants.okButtonTitle, role: .cancel) { }
+            } message: {
+                Text(viewModel.error?.localizedDescription ?? StringConstants.unknownErrorMessage)
             }
         }
     }

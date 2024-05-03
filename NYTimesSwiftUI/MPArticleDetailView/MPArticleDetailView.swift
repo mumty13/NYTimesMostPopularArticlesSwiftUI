@@ -26,7 +26,7 @@ struct MPArticleDetailView: View {
                     
                     HStack(spacing: 5) {
                         Spacer()
-                        Image(systemName: "calendar")
+                        Image(systemName: ImageConstants.calendar)
                             .foregroundColor(.gray)
                         Text(article.publishedDate ?? "")
                             .font(.footnote)
@@ -39,7 +39,7 @@ struct MPArticleDetailView: View {
                         .multilineTextAlignment(.leading)
                     
                     if let url = URL(string: article.url ?? "") {
-                        Link("Read more", destination: url)
+                        Link(StringConstants.readMoreText, destination: url)
                     }
                 }
                 .padding(.horizontal)
