@@ -3,6 +3,7 @@ This project doesn't use any external library, so you can run the project withou
 <img width="985" alt="Screenshot 2024-05-03 at 6 52 35 PM" src="https://github.com/mumty13/NYTimesMostPopularArticlesSwiftUI/assets/32218777/bf869532-ef7d-4be8-9d7d-f295b9de0494">
 
 **Here is a video demo:**
+
 https://github.com/mumty13/NYTimesMostPopularArticlesSwiftUI/assets/32218777/8bbb6665-cac7-4eed-90c9-e7bcc33b212e
 
 **How to run unit tests:**
