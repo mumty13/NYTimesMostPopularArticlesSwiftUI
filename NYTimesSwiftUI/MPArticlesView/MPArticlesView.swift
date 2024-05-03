@@ -11,26 +11,17 @@ import WebKit
 struct MPArticlesView: View {
     @StateObject var viewModel = ViewModel()
     @State private var isSearching = false
-    @State private var searchText = ""
-    
-    var filteredArticles: [Article] {
-        if searchText.isEmpty {
-            return viewModel.articles
-        } else {
-            return viewModel.articles.filter { $0.title?.localizedCaseInsensitiveContains(searchText) ?? false }
-        }
-    }
     
     var body: some View {
         NavigationView {
             VStack {
                 if isSearching {
-                    SearchBar(searchText: $searchText)
+                    SearchBar(searchText: $viewModel.searchText)
                 }
                 if viewModel.isLoading {
                     ProgressView("Loading…").background(.white)
                 } else {
-                    List(filteredArticles, id: \.id) { article in
+                    List(viewModel.articles, id: \.id) { article in
                         NavigationLink(destination: MPArticleDetailView(article: article)) {
                             MPArticleCellView(imageURL: article.media?.first?.mediaMetadata?.first?.url ?? "", title: article.title ?? "", byLine: article.byline ?? "", date: article.publishedDate ?? "")
                         }
@@ -57,9 +48,7 @@ struct MPArticlesView: View {
                     }
             )
             .onAppear {
-                Task {
-                    viewModel.fetchMostPopularArticles()
-                }
+                viewModel.fetchMostPopularArticles()
             }
         }
     }

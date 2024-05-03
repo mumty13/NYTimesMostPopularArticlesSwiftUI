@@ -10,10 +10,12 @@ import Foundation
 extension MPArticlesView {
     class ViewModel: ObservableObject {
         @Published var articles: [Article] = []
+        @Published var searchText: String = ""
         @Published var isLoading: Bool = true
         @Published var error: Error?
 
         private let articlesRepository: MPArticlesRepository
+        private var allArticles: [Article] = []
 
         init(articlesRepository: MPArticlesRepository = MPArticlesRepositoryImpl(baseURL: APIConstants.articlesBaseUrl)) {
             self.articlesRepository = articlesRepository
@@ -25,7 +27,8 @@ extension MPArticlesView {
                 do {
                     let articlesResponse = try await articlesRepository.getMostPopularArticles()
                     DispatchQueue.main.async {
-                        self.articles = articlesResponse.results ?? []
+                        self.allArticles = articlesResponse.results ?? []
+                        self.articles = self.allArticles
                         self.isLoading = false
                     }
                 } catch {
@@ -33,6 +36,16 @@ extension MPArticlesView {
                         self.error = error
                         self.isLoading = false
                     }
+                }
+            }
+        }
+        
+        func filterArticles() {
+            if searchText.isEmpty {
+                articles = allArticles
+            } else {
+                articles = allArticles.filter { article in
+                    article.title?.localizedCaseInsensitiveContains(searchText) ?? false
                 }
             }
         }
