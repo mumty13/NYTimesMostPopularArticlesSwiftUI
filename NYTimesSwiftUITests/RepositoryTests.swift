@@ -34,20 +34,6 @@ class MPArticlesRepositoryTests: XCTestCase {
             XCTAssertEqual((error as NSError).code, 500)
         }
     }
-    
-    func testGetMostPopularArticlesFailure() async throws {
-        let mockHTTPClient = MockHTTPClient(shouldSucceed: false)
-        let repository = MPArticlesRepositoryImpl(httpClient: mockHTTPClient, baseURL: "https://example.com/api")
-        
-        do {
-            _ = try await repository.getMostPopularArticles()
-            XCTFail("the api should throw an error")
-        }
-        catch {
-            XCTAssertEqual((error as NSError).domain, "MockHTTPClient")
-            XCTAssertEqual((error as NSError).code, 500)
-        }
-    }
 }
 
 class MockHTTPClient: HTTPClient {
