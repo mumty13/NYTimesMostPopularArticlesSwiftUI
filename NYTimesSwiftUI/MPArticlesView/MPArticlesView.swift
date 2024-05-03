@@ -50,6 +50,9 @@ struct MPArticlesView: View {
             .onAppear {
                 viewModel.fetchMostPopularArticles()
             }
+            .onChange(of: viewModel.searchText) { _ in
+                viewModel.filterArticles()
+            }
         }
     }
 }
