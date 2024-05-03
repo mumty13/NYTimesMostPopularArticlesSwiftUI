@@ -13,23 +13,31 @@ import XCTest
 class MPArticlesRepositoryTests: XCTestCase {
     
     func testGetMostPopularArticlesSuccess() async throws {
+        // Given
         let mockHTTPClient = MockHTTPClient(shouldSucceed: true)
         let repository = MPArticlesRepositoryImpl(httpClient: mockHTTPClient, baseURL: "https://example.com/api")
         
+        // When
         let articlesResponse = try await repository.getMostPopularArticles()
         
+        // Then
         XCTAssertNotNil(articlesResponse)
     }
     
     func testGetMostPopularArticlesFailure() async throws {
+        // Given
         let mockHTTPClient = MockHTTPClient(shouldSucceed: false)
         let repository = MPArticlesRepositoryImpl(httpClient: mockHTTPClient, baseURL: "https://example.com/api")
         
+        // When
         do {
             _ = try await repository.getMostPopularArticles()
+            
+            // Then
             XCTFail("the api should throw an error")
         }
         catch {
+            // Then
             XCTAssertEqual((error as NSError).domain, "MockHTTPClient")
             XCTAssertEqual((error as NSError).code, 500)
         }

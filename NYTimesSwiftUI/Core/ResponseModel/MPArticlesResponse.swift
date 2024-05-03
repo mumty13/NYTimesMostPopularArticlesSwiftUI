@@ -13,7 +13,7 @@ struct MPArticlesResponse: Codable, Hashable {
     }
 }
 
-// MARK: - Result
+// MARK: - Article
 struct Article: Codable, Hashable {
     let uri: String?
     let url: String?

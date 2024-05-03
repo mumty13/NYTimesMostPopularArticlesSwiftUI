@@ -47,14 +47,53 @@ class ViewModelTests: XCTestCase {
         // Given
         let mockRepository = MockArticlesRepository(shouldSucceed: true)
         let viewModel = MPArticlesView.ViewModel(articlesRepository: mockRepository)
+        
+        // When
         await viewModel.fetchMostPopularArticles()
 
+        // Then
         XCTAssertEqual(viewModel.articles.count, 2)
 
+        // Given
         viewModel.searchText = "Article 2"
         viewModel.filterArticles()
-
+        
+        // Then
         XCTAssertEqual(viewModel.articles.count, 1)
         XCTAssertEqual(viewModel.articles.first?.title, "Article 2")
+        
+        // Given
+        viewModel.searchText = "Article 3"
+        viewModel.filterArticles()
+        
+        // Then
+        XCTAssertEqual(viewModel.articles.count, 0)
+        
+        // Given
+        viewModel.searchText = ""
+        viewModel.filterArticles()
+        
+        // Then
+        XCTAssertEqual(viewModel.articles.count, 2)
+        XCTAssertEqual(viewModel.articles.first?.title, "Article 1")
+    }
+    
+    func testResetStates() {
+        // Given
+        let mockRepository = MockArticlesRepository(shouldSucceed: true)
+        let viewModel = MPArticlesView.ViewModel(articlesRepository: mockRepository)
+        viewModel.isSearching = true
+        viewModel.errorShow = true
+        viewModel.searchText = "Test"
+        viewModel.error = NSError(domain: "test", code: 500, userInfo: nil)
+
+        // When
+        viewModel.resetStates()
+
+        // Then
+        XCTAssertFalse(viewModel.isSearching)
+        XCTAssertFalse(viewModel.errorShow)
+        XCTAssertEqual(viewModel.searchText, "")
+        XCTAssertNil(viewModel.error)
     }
 }

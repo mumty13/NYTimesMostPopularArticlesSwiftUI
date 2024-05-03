@@ -20,7 +20,6 @@ class URLSessionHTTPTests: XCTestCase {
 }
 
 extension URLSessionHTTPTests {
-    // MARK: Observe URL Response
     func test_makeGetRequest_ExpectToReceiveAnErrorWhenStubbingAnError() async {
         let sut = makeSUT()
         stub(data: anyData(), response: anyHTTPURLResponse(), error: anyNSError())
@@ -35,8 +34,6 @@ extension URLSessionHTTPTests {
 }
 
 extension URLSessionHTTPTests {
-    // MARK: Helpers
-
     func makeSUT() -> URLSessionHTTPClient {
         let urlSessionConfiguration = URLSessionConfiguration.default
         urlSessionConfiguration.protocolClasses = [URLProtocolStub.self]
