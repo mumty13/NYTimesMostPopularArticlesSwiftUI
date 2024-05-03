@@ -10,7 +10,6 @@ import WebKit
 
 struct MPArticlesView: View {
     @StateObject var viewModel = ViewModel()
-    @State private var isLoading = true
     @State private var isSearching = false
     @State private var searchText = ""
     
@@ -28,8 +27,8 @@ struct MPArticlesView: View {
                 if isSearching {
                     SearchBar(searchText: $searchText)
                 }
-                if isLoading {
-                    ProgressView().background(.gray)
+                if viewModel.isLoading {
+                    ProgressView("Loading…").background(.white)
                 } else {
                     List(filteredArticles, id: \.id) { article in
                         NavigationLink(destination: MPArticleDetailView(article: article)) {
@@ -58,10 +57,8 @@ struct MPArticlesView: View {
                     }
             )
             .onAppear {
-                isLoading = true
                 Task {
                     viewModel.fetchMostPopularArticles()
-                    isLoading = false
                 }
             }
         }

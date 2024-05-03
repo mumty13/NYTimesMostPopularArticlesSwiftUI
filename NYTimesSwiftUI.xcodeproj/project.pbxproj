@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E0084F2A2BE3DB4500B03857 /* MPArticlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0084F292BE3DB4500B03857 /* MPArticlesView.swift */; };
-		E0084F2C2BE3DB9400B03857 /* MPArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0084F2B2BE3DB9400B03857 /* MPArticlesViewModel.swift */; };
 		E0084F2E2BE3DD4D00B03857 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0084F2D2BE3DD4D00B03857 /* NetworkService.swift */; };
+		E05C1F952BE4DFD300C71D63 /* MPArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1F942BE4DFD300C71D63 /* MPArticlesViewModel.swift */; };
 		E08FA9482BE4B69F006C5066 /* MPArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA9472BE4B69F006C5066 /* MPArticlesRepository.swift */; };
 		E08FA94A2BE4B6E3006C5066 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA9492BE4B6E3006C5066 /* APIConstants.swift */; };
 		E08FA94C2BE4B70A006C5066 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA94B2BE4B70A006C5066 /* APIError.swift */; };
@@ -53,8 +53,8 @@
 
 /* Begin PBXFileReference section */
 		E0084F292BE3DB4500B03857 /* MPArticlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesView.swift; sourceTree = "<group>"; };
-		E0084F2B2BE3DB9400B03857 /* MPArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MPArticlesViewModel.swift; path = ../../../../MPArticlesViewModel.swift; sourceTree = "<group>"; };
 		E0084F2D2BE3DD4D00B03857 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E05C1F942BE4DFD300C71D63 /* MPArticlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesViewModel.swift; sourceTree = "<group>"; };
 		E08FA9472BE4B69F006C5066 /* MPArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesRepository.swift; sourceTree = "<group>"; };
 		E08FA9492BE4B6E3006C5066 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		E08FA94B2BE4B70A006C5066 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				E0084F292BE3DB4500B03857 /* MPArticlesView.swift */,
-				E0084F2B2BE3DB9400B03857 /* MPArticlesViewModel.swift */,
+				E05C1F942BE4DFD300C71D63 /* MPArticlesViewModel.swift */,
 			);
 			path = MPArticlesView;
 			sourceTree = "<group>";
@@ -378,10 +378,10 @@
 				E08FA9602BE4D618006C5066 /* SearchBar.swift in Sources */,
 				E0084F2A2BE3DB4500B03857 /* MPArticlesView.swift in Sources */,
 				E08FA9482BE4B69F006C5066 /* MPArticlesRepository.swift in Sources */,
-				E0084F2C2BE3DB9400B03857 /* MPArticlesViewModel.swift in Sources */,
 				E08FA94C2BE4B70A006C5066 /* APIError.swift in Sources */,
 				E0E3F8552BE34E250031FA6B /* MPArticlesResponse.swift in Sources */,
 				E08FA94A2BE4B6E3006C5066 /* APIConstants.swift in Sources */,
+				E05C1F952BE4DFD300C71D63 /* MPArticlesViewModel.swift in Sources */,
 				E0E3F8572BE3C2380031FA6B /* NetworkManager.swift in Sources */,
 				E0E3F8232BE213C20031FA6B /* NYTimesSwiftUIApp.swift in Sources */,
 				E08FA9632BE4D660006C5066 /* MPArticleCellView.swift in Sources */,
