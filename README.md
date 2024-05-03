@@ -21,4 +21,4 @@ There are a few ways to run the unit tests. What I find easy is this one, first 
 
 Please note that some of these files are UI related which I have not included in writing the unit tests for.
 
-<img width="1680" alt="Screenshot 2024-05-03 at 6 50 03 PM" src="https://github.com/mumty13/NYTimesMostPopularArticlesSwiftUI/assets/32218777/c592ff7d-24ce-48bc-94d3-cc1bf815f1bf">
+<img width="1680" alt="Screenshot 2024-05-03 at 7 17 30 PM" src="https://github.com/mumty13/NYTimesMostPopularArticlesSwiftUI/assets/32218777/8dd3f5cb-d1e3-4d5a-a121-9a231ccd390f">
