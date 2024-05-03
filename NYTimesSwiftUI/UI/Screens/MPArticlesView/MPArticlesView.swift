@@ -11,12 +11,11 @@ import WebKit
 struct MPArticlesView: View {
     @EnvironmentObject var coordinator: Coordinator
     @StateObject var viewModel = ViewModel()
-    @State private var isSearching = false
     
     var body: some View {
         NavigationView {
             VStack {
-                if isSearching {
+                if viewModel.isSearching {
                     SearchBar(searchText: $viewModel.searchText)
                 }
                 if viewModel.isLoading {
@@ -48,27 +47,28 @@ struct MPArticlesView: View {
             .navigationBarItems(
                 trailing:
                     Button(action: {
-                        isSearching.toggle()
+                        viewModel.isSearching.toggle()
                     }) {
                         Image(systemName: ImageConstants.magnifyingglass)
                             .foregroundColor(.black)
                     }
             )
-            .onAppear {
+            .task {
                 if viewModel.articles.isEmpty {
-                    viewModel.fetchMostPopularArticles()
+                    await viewModel.fetchMostPopularArticles()
                 }
             }
             .refreshable {
-                isSearching = false
                 viewModel.resetStates()
-                viewModel.fetchMostPopularArticles()
+                Task {
+                    await viewModel.fetchMostPopularArticles()
+                }
             }
             .onChange(of: viewModel.searchText) { _ in
                 viewModel.filterArticles()
             }
             .alert(StringConstants.errorMessage, isPresented: $viewModel.errorShow) {
-                Button(StringConstants.okButtonTitle, role: .cancel) { }
+                Button(StringConstants.okButtonTitle, role: .cancel) {}
             } message: {
                 Text(viewModel.error?.localizedDescription ?? StringConstants.unknownErrorMessage)
             }

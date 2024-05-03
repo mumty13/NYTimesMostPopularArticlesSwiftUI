@@ -13,6 +13,11 @@
 		E05C1F9A2BE4FCA400C71D63 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1F992BE4FCA400C71D63 /* StringConstants.swift */; };
 		E05C1FA52BE51B5C00C71D63 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1FA42BE51B5C00C71D63 /* Coordinator.swift */; };
 		E05C1FA72BE51CF100C71D63 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05C1FA62BE51CF100C71D63 /* CoordinatorView.swift */; };
+		E064E68A2BE5212E00D47BA0 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064E6892BE5212E00D47BA0 /* RepositoryTests.swift */; };
+		E064E68C2BE5224D00D47BA0 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064E68B2BE5224D00D47BA0 /* ViewModelTests.swift */; };
+		E064E68F2BE5277D00D47BA0 /* MockArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064E68E2BE5277D00D47BA0 /* MockArticlesRepository.swift */; };
+		E064E6912BE5280E00D47BA0 /* MockArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064E6902BE5280E00D47BA0 /* MockArticle.swift */; };
+		E064E6932BE528FC00D47BA0 /* MockMPArticlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E064E6922BE528FC00D47BA0 /* MockMPArticlesResponse.swift */; };
 		E08FA9482BE4B69F006C5066 /* MPArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA9472BE4B69F006C5066 /* MPArticlesRepository.swift */; };
 		E08FA94A2BE4B6E3006C5066 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA9492BE4B6E3006C5066 /* APIConstants.swift */; };
 		E08FA94C2BE4B70A006C5066 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08FA94B2BE4B70A006C5066 /* APIError.swift */; };
@@ -34,7 +39,6 @@
 		E0E3F83E2BE213C40031FA6B /* NYTimesSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E3F83D2BE213C40031FA6B /* NYTimesSwiftUIUITests.swift */; };
 		E0E3F8402BE213C40031FA6B /* NYTimesSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E3F83F2BE213C40031FA6B /* NYTimesSwiftUIUITestsLaunchTests.swift */; };
 		E0E3F8552BE34E250031FA6B /* MPArticlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E3F8542BE34E250031FA6B /* MPArticlesResponse.swift */; };
-		E0E3F8572BE3C2380031FA6B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E3F8562BE3C2380031FA6B /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,11 @@
 		E05C1F992BE4FCA400C71D63 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
 		E05C1FA42BE51B5C00C71D63 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E05C1FA62BE51CF100C71D63 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		E064E6892BE5212E00D47BA0 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		E064E68B2BE5224D00D47BA0 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		E064E68E2BE5277D00D47BA0 /* MockArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticlesRepository.swift; sourceTree = "<group>"; };
+		E064E6902BE5280E00D47BA0 /* MockArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockArticle.swift; sourceTree = "<group>"; };
+		E064E6922BE528FC00D47BA0 /* MockMPArticlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMPArticlesResponse.swift; sourceTree = "<group>"; };
 		E08FA9472BE4B69F006C5066 /* MPArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesRepository.swift; sourceTree = "<group>"; };
 		E08FA9492BE4B6E3006C5066 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		E08FA94B2BE4B70A006C5066 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -85,7 +94,6 @@
 		E0E3F83D2BE213C40031FA6B /* NYTimesSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesSwiftUIUITests.swift; sourceTree = "<group>"; };
 		E0E3F83F2BE213C40031FA6B /* NYTimesSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTimesSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E0E3F8542BE34E250031FA6B /* MPArticlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPArticlesResponse.swift; sourceTree = "<group>"; };
-		E0E3F8562BE3C2380031FA6B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +186,16 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		E064E68D2BE5250100D47BA0 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				E064E68E2BE5277D00D47BA0 /* MockArticlesRepository.swift */,
+				E064E6902BE5280E00D47BA0 /* MockArticle.swift */,
+				E064E6922BE528FC00D47BA0 /* MockMPArticlesResponse.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		E08FA9462BE4B682006C5066 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,10 +283,13 @@
 		E0E3F8322BE213C40031FA6B /* NYTimesSwiftUITests */ = {
 			isa = PBXGroup;
 			children = (
+				E064E68D2BE5250100D47BA0 /* Mock */,
 				E08FA9532BE4B83A006C5066 /* Helpers */,
 				E08FA9512BE4B813006C5066 /* APIErrorTests.swift */,
 				E08FA9562BE4B86E006C5066 /* DefaultResponseMapperTests.swift */,
 				E08FA9582BE4B894006C5066 /* URLSessionHTTPTests.swift */,
+				E064E6892BE5212E00D47BA0 /* RepositoryTests.swift */,
+				E064E68B2BE5224D00D47BA0 /* ViewModelTests.swift */,
 			);
 			path = NYTimesSwiftUITests;
 			sourceTree = "<group>";
@@ -285,7 +306,6 @@
 		E0E3F84C2BE214F50031FA6B /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				E0E3F8562BE3C2380031FA6B /* NetworkManager.swift */,
 				E08FA9492BE4B6E3006C5066 /* APIConstants.swift */,
 				E08FA94B2BE4B70A006C5066 /* APIError.swift */,
 				E08FA94D2BE4B78E006C5066 /* DefaultResponseMapper.swift */,
@@ -441,7 +461,6 @@
 				E0E3F8552BE34E250031FA6B /* MPArticlesResponse.swift in Sources */,
 				E08FA94A2BE4B6E3006C5066 /* APIConstants.swift in Sources */,
 				E05C1F952BE4DFD300C71D63 /* MPArticlesViewModel.swift in Sources */,
-				E0E3F8572BE3C2380031FA6B /* NetworkManager.swift in Sources */,
 				E0E3F8232BE213C20031FA6B /* NYTimesSwiftUIApp.swift in Sources */,
 				E05C1FA52BE51B5C00C71D63 /* Coordinator.swift in Sources */,
 				E08FA9632BE4D660006C5066 /* MPArticleCellView.swift in Sources */,
@@ -458,10 +477,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E08FA95B2BE4B8BE006C5066 /* URLProtocolStub.swift in Sources */,
+				E064E6932BE528FC00D47BA0 /* MockMPArticlesResponse.swift in Sources */,
+				E064E68A2BE5212E00D47BA0 /* RepositoryTests.swift in Sources */,
 				E08FA9522BE4B813006C5066 /* APIErrorTests.swift in Sources */,
 				E08FA9572BE4B86E006C5066 /* DefaultResponseMapperTests.swift in Sources */,
+				E064E6912BE5280E00D47BA0 /* MockArticle.swift in Sources */,
 				E08FA9592BE4B894006C5066 /* URLSessionHTTPTests.swift in Sources */,
 				E08FA9552BE4B84A006C5066 /* SharedTestHelpers.swift in Sources */,
+				E064E68C2BE5224D00D47BA0 /* ViewModelTests.swift in Sources */,
+				E064E68F2BE5277D00D47BA0 /* MockArticlesRepository.swift in Sources */,
 				E08FA95D2BE4B956006C5066 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

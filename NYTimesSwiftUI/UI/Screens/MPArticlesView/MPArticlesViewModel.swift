@@ -12,6 +12,7 @@ extension MPArticlesView {
         @Published var articles: [Article] = []
         @Published var searchText: String = ""
         @Published var isLoading: Bool = true
+        @Published var isSearching = false
         @Published var error: Error?
         @Published var errorShow: Bool = false
         
@@ -22,20 +23,19 @@ extension MPArticlesView {
             self.articlesRepository = articlesRepository
         }
         
-        func fetchMostPopularArticles() {
+        func fetchMostPopularArticles() async {
             isLoading = true
-            Task {
-                do {
-                    let articlesResponse = try await articlesRepository.getMostPopularArticles()
-                    self.allArticles = articlesResponse.results ?? []
-                    self.articles = self.allArticles
-                    self.isLoading = false
-                    self.errorShow = false
-                } catch {
-                    self.error = error
-                    self.isLoading = false
-                    self.errorShow = true
-                }
+            do {
+                let articlesResponse = try await articlesRepository.getMostPopularArticles()
+                self.allArticles = articlesResponse.results ?? []
+                self.articles = self.allArticles
+                self.isLoading = false
+                self.errorShow = false
+            }
+            catch {
+                self.error = error
+                self.isLoading = false
+                self.errorShow = true
             }
         }
         
@@ -50,6 +50,7 @@ extension MPArticlesView {
         }
         
         func resetStates() {
+            isSearching = false
             errorShow = false
             searchText = ""
             error = nil
