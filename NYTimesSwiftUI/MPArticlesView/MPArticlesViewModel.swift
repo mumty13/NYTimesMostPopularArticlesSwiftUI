@@ -8,34 +8,30 @@
 import Foundation
 
 extension MPArticlesView {
-    class ViewModel: ObservableObject {
+    @MainActor class ViewModel: ObservableObject {
         @Published var articles: [Article] = []
         @Published var searchText: String = ""
         @Published var isLoading: Bool = true
         @Published var error: Error?
-
+        
         private let articlesRepository: MPArticlesRepository
         private var allArticles: [Article] = []
-
+        
         init(articlesRepository: MPArticlesRepository = MPArticlesRepositoryImpl(baseURL: APIConstants.articlesBaseUrl)) {
             self.articlesRepository = articlesRepository
         }
-
+        
         func fetchMostPopularArticles() {
             isLoading = true
             Task {
                 do {
                     let articlesResponse = try await articlesRepository.getMostPopularArticles()
-                    DispatchQueue.main.async {
-                        self.allArticles = articlesResponse.results ?? []
-                        self.articles = self.allArticles
-                        self.isLoading = false
-                    }
+                    self.allArticles = articlesResponse.results ?? []
+                    self.articles = self.allArticles
+                    self.isLoading = false
                 } catch {
-                    DispatchQueue.main.async {
-                        self.error = error
-                        self.isLoading = false
-                    }
+                    self.error = error
+                    self.isLoading = false
                 }
             }
         }

@@ -26,7 +26,7 @@ struct MPArticlesView: View {
                             MPArticleCellView(imageURL: article.media?.first?.mediaMetadata?.first?.url ?? "", title: article.title ?? "", byLine: article.byline ?? "", date: article.publishedDate ?? "")
                         }
                     }
-                    .frame(width: UIScreen.main.bounds.size.width,
+                    .frame(maxWidth: .infinity,
                            alignment: .center)
                     .listRowInsets(.init())
                     .listStyle(PlainListStyle())
